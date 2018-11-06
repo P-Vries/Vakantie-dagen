@@ -29,10 +29,10 @@ namespace Vakantiedagen
             byte basis = 0;
             byte uit = 0;
 
-            if (rdbAfdeling1.Checked) { basis += 24; }
-            if (rdbAfdeling2.Checked) { basis += 23; }
-            if (rdbAfdeling3.Checked) { basis += 22; }
-            if (rdbAfdelingO.Checked) { basis += 20; }
+            if (rdbAfdeling1.Checked) { basis = 24; uit = 24; }
+            if (rdbAfdeling2.Checked) { basis = 23; uit = 23; }
+            if (rdbAfdeling3.Checked) { basis = 22; uit = 22; }
+            if (rdbAfdelingO.Checked) { basis = 20; uit = 20; }
 
             int leeftijd = DateTime.Now.Year - dtpGeboorteDatum.Value.Year;
             if (leeftijd >= 50)
@@ -40,7 +40,7 @@ namespace Vakantiedagen
                 uit = (byte)(basis + 5);
                 if(leeftijd >= 55)
                 {
-                    uit = (byte)(uit + (leeftijd - 54));
+                    uit += (byte)(uit + (leeftijd - 54));
                 }
             }
             int werktijd = DateTime.Now.Year - dtpBeginDatum.Value.Year;
